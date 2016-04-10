@@ -27,22 +27,21 @@ public final class EventListener<T> {
 	
 	private let listen: Listen
 	private var calls: Int
-    var active = true
+	var active = true
 	
-    init(calls: Int, listen: Listen) {
+	init(calls: Int, listen: Listen) {
 		self.calls = calls
 		self.listen = listen
 	}
 	
-    func call(event: T) throws -> Bool {
+	func call(event: T) throws -> Bool {
 		calls -= 1
-
+	
 		if calls == 0 {
             active = false
         }
-
+	
         try listen(event)
-
 		return active
 	}
     
