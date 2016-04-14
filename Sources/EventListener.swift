@@ -34,7 +34,7 @@ public final class EventListener<T> {
 		self.listen = listen
 	}
 	
-	func call(event: T) throws -> Bool {
+	func call(_ event: T) throws -> Bool {
 		calls -= 1
 	
 		if calls == 0 {
