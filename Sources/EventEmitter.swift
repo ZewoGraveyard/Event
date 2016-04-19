@@ -27,13 +27,13 @@ public final class EventEmitter<T> {
 	
 	public init() {}
 	
-	public func addListener(times times: Int = -1, listen: EventListener<T>.Listen) -> EventListener<T> {
+	public func addListener(times: Int = -1, listen: EventListener<T>.Listen) -> EventListener<T> {
 		let listener = EventListener<T>(calls: times, listen: listen)
 		listeners.append(listener)
 		return listener
 	}
 	
-	public func emit(event: T) throws {
+	public func emit(_ event: T) throws {
 		listeners = listeners.filter({ $0.active })
 
         for listener in listeners {
