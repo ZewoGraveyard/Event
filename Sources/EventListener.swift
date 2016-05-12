@@ -23,7 +23,7 @@
 // SOFTWARE.
 
 public final class EventListener<T> {
-	public typealias Listen = T throws -> Void
+	public typealias Listen = (T) throws -> Void
 	
 	private let listen: Listen
 	private var calls: Int
